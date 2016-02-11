@@ -1,0 +1,14 @@
+{
+    "title":               "Puppies and Kittens",
+    "description":         "Pick which animal is cuter!",
+    "keywords":            "puppies, kittens, cute",
+    "url":                 "http://stanford.edu/~jedtan/puppiesandkittens/puppiesandkittens/even-odd.html",
+    "frame_height":         450,
+    "assignment_duration":  "1 minute",
+    "auto_approval_delay":  "5 minutes",
+    "reward":               0.05,
+    "qualifications": {
+        "location": "US",
+        "approval_percentage": 85
+    }
+}
