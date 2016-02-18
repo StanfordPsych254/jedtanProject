@@ -59,6 +59,7 @@ var experiment = {
   gridsize: 4,
   xposition: 0,
   yposition: 0,
+  currpos: 0,
   trialinfo: [],
 
   // Parameters for this sequence.
@@ -78,6 +79,7 @@ var experiment = {
   },
   // The work horse of the sequence - what to do on every trial.
   next: function() {
+    experiment.currpos = 0;
     $('body').css({'background-color': 'black'});
     showSlide("stage");
     if (experiment.alltrials.length == 0) {
@@ -92,16 +94,17 @@ var experiment = {
     experiment.trialinfo = trial_info;
     console.log(experiment.trialinfo);
     var html_string = "<table id='path-holder'><tr><td><img src='images/" + trial_values[0] + ".jpg'></img></td><td><img src='images/" + trial_values[1] + ".jpg'></img></td><td><img src='images/" + trial_values[2] + ".jpg'></img></td><td><img src='images/" + trial_values[3] + ".jpg'></img></td></tr></table>";
-    var left_string = "+=" + experiment.xposition * 104 + "px";
+    var left_string = "+=" + experiment.xposition * 150 + "px";
     $('#path').html(html_string);
     $( "#display-table" ).css({
-                marginLeft: left_string
+                marginLeft: left_string,
+                margin: '0 auto'
                 });
 
-    $( "#display-table" ).animate({
-          margin: '0 auto',
+    /*$( "#display-table" ).animate({
+          
       }, 125, function() {
-    }); 
+    }); */
 
     experiment.xposition = 0;
     experiment.yposition = 0;
@@ -130,19 +133,19 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-           }, 250, function() {
+           }, 200, function() {
               $( "#display-table" ).css({
-                marginLeft: '-=150px'
+                marginLeft: '-=154px'
                 });
               $( "#display-table" ).animate({
                 opacity: '1'
-                }, 250, function() {});
+                }, 200, function() {});
           });
         }
         else{
           $( "#display-table" ).animate({
-            marginLeft: '-=150px'
-           }, 250, function() {
+            marginLeft: '-=154px'
+           }, 400, function() {
           });
         }
       } 
@@ -151,14 +154,14 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-           }, 250, function() {
+           }, 200, function() {
               $( "#display-table" ).css({
                 marginTop: '-=109px',
                 marginBottom: '+=109px'
                 });
               $( "#display-table" ).animate({
                 opacity: '1'
-                }, 250, function() {});
+                }, 200, function() {});
 
           });
         }
@@ -166,7 +169,7 @@ var experiment = {
           $( "#display-table" ).animate({
           marginTop: '-=156px',
           marginBottom: '+=156px'
-         }, 250, function() {
+         }, 400, function() {
         });
         }
       }
@@ -175,19 +178,19 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-           }, 250, function() {
+           }, 200, function() {
               $( "#display-table" ).css({
-                marginLeft: '+=150px'
+                marginLeft: '+=154px'
                 });
               $( "#display-table" ).animate({
                 opacity: '1'
-                }, 250, function() {});
+                }, 200, function() {});
           });
         }
         else{
           $( "#display-table" ).animate({
-            marginLeft: '+=150px'
-           }, 250, function() {
+            marginLeft: '+=154px'
+           }, 400, function() {
           });
         }
       }
@@ -196,21 +199,21 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-           }, 250, function() {
+           }, 200, function() {
               $( "#display-table" ).css({
                 marginTop: '+=156px',
                 marginBottom: '-=156px'
                 });
               $( "#display-table" ).animate({
                 opacity: '1'
-                }, 250, function() {});
+                }, 200, function() {});
           });
         }
         else{
           $( "#display-table" ).animate({
             marginTop: '+=156px',
             marginBottom: '-=156px'
-           }, 250, function() {
+           }, 400, function() {
           });        
         }
       }
@@ -218,6 +221,8 @@ var experiment = {
       console.log("X:" + experiment.xposition + " Y:" + experiment.yposition);
       console.log(experiment.trialinfo[0]);
       if (experiment.xposition == experiment.trialinfo[0][0] && experiment.yposition == experiment.trialinfo[0][1]) {
+        $( "#path-holder img" ).eq(experiment.currpos).css({'border': '4px solid green'});
+        experiment.currpos ++;
         experiment.trialinfo.shift();
         console.log("correct");
         if (experiment.trialinfo.length == 0){
