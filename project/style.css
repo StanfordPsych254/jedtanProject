@@ -9,10 +9,46 @@
 	max-width: 400px;
 }
 
-img{
+#img-mask{
+	position: absolute;
+	margin-left: -450px;
+	margin-top: -471px;
+}
+#display-table img{
+	max-width: 150px;
+}
+#path-holder img{
 	max-width: 100px;
 }
 
+#path-holder img{
+	margin: 10px;
+}
+
+#grid-holder{
+	position: fixed; /* or absolute */
+	top: 40%;
+	left: 50%;
+  	margin-top: -75px;
+  	margin-left: -75px;
+}
+
+#path-holder{
+	position: fixed; /* or absolute */
+	top: 65%;
+	left: 50%;
+	margin-left: -240px;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td{
+	padding: 0px;
+}
+tr{
+	padding: 0px;
+}
 body {
 	padding: 0;
 	margin: 0;
@@ -20,7 +56,9 @@ body {
 	font-size: 16px;
 	line-height: 20px;
 }
+#display-table{
 
+}
 /* We manage display using "slides". A slide is a <code>div</code> that takes up the entire page. Only one slide should be visible at a time. Navigation between slides is most sensibly accomplished using using buttons, rather than keyboard events. */
 .slide {
 	width: 95%;

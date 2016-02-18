@@ -48,16 +48,23 @@ $("#even-key").text("Q");
 
 // Show the instructions slide -- this is what we want subjects to see first.
 showSlide("instructions");
+console.log("hi");
 
 // ## The main event
 // I implement the sequence as an object with properties and methods. The benefit of encapsulating everything in an object is that it's conceptually coherent (i.e. the <code>data</code> variable belongs to this particular sequence and not any other) and allows you to **compose** sequences to build more complicated experiments. For instance, if you wanted an experiment with, say, a survey, a reaction time test, and a memory test presented in a number of different orders, you could easily do so by creating three separate sequences and dynamically setting the <code>end()</code> function for each sequence so that it points to the next. **More practically, you should stick everything in an object and submit that whole object so that you don't lose data (e.g. randomization parameters, what condition the subject is in, etc). Don't worry about the fact that some of the object properties are functions -- mmturkey (the Turk submission library) will strip these out.**
 
 var experiment = {
-  // Parameters for this sequence.
-  // Experiment-specific parameters - which keys map to odd/even
+  currenttrial: 0,
+  stimulustype: 0,
+  gridsize: 4,
   xposition: 0,
   yposition: 0,
+  trialinfo: [],
+
+  // Parameters for this sequence.
+  // Experiment-specific parameters - which keys map to odd/even
   movement_constant: 100,
+  alltrials: [[2, 14, 5, 6], [3, 6, 9, 12]],
   trials: allPuppies.length,
   // An array to store the data that we're collecting.
   data: [],
@@ -67,25 +74,44 @@ var experiment = {
     showSlide("finished");
     // Wait 1.5 seconds and then submit the whole experiment object to Mechanical Turk (mmturkey filters out the functions so we know we're just submitting properties [i.e. data])
     setTimeout(function() { turk.submit(experiment) }, 1500);
+    console.log(experiment);
   },
   // The work horse of the sequence - what to do on every trial.
   next: function() {
-
-    // If the number of remaining trials is 0, we're done, so call the end function.
-    if (experiment.trials == 0) {
+    $('body').css({'background-color': 'black'});
+    showSlide("stage");
+    if (experiment.alltrials.length == 0) {
       experiment.end();
       return;
     }
+    trial_values = experiment.alltrials.shift();
+    trial_info = [];
+    for (var val in trial_values){
+      trial_info.push([(trial_values[val]-1) % experiment.gridsize, Math.floor((trial_values[val]-1) / experiment.gridsize)]);
+    }
+    experiment.trialinfo = trial_info;
+    console.log(experiment.trialinfo);
+    var html_string = "<table id='path-holder'><tr><td><img src='images/" + trial_values[0] + ".jpg'></img></td><td><img src='images/" + trial_values[1] + ".jpg'></img></td><td><img src='images/" + trial_values[2] + ".jpg'></img></td><td><img src='images/" + trial_values[3] + ".jpg'></img></td></tr></table>";
+    var left_string = "+=" + experiment.xposition * 104 + "px";
+    $('#path').html(html_string);
+    $( "#display-table" ).css({
+                marginLeft: left_string
+                });
+
+    $( "#display-table" ).animate({
+          margin: '0 auto',
+      }, 125, function() {
+    }); 
+
+    experiment.xposition = 0;
+    experiment.yposition = 0;
     
     experiment.trials--;
     
-    showSlide("stage");
 
-    puppyURL = randomElement(allPuppies);
-    kittenURL = randomElement(allKittens);
     var keyBindings = {};
     var stimulus = [];
-    var position = randomInteger(2)
+    var position = randomInteger(2);
 
     // Display the number stimulus.
     
@@ -96,64 +122,128 @@ var experiment = {
     
     // Set up a function to react to keyboard input. Functions that are used to react to user input are called *event handlers*. In addition to writing these event handlers, you have to *bind* them to particular events (i.e., tell the browser that you actually want the handler to run when the user performs an action). Note that the handler always takes an <code>event</code> argument, which is an object that provides data about the user input (e.g., where they clicked, which button they pressed).
     var keyPressHandler = function(event) {
-      console.log(event);
       // A slight disadvantage of this code is that you have to test for numeric key values; instead of writing code that expresses "*do X if 'Q' was pressed*", you have to do the more complicated "*do X if the key with code 80 was pressed*". A library like [Keymaster](http://github.com/madrobby/keymaster) lets you write simpler code like <code>key('a', function(){ alert('you pressed a!') })</code>, but I've omitted it here. Here, we get the numeric key code from the event object
       var keyCode = event.which;
       
-      if (keyCode == 37) {
-        self.xposition --;
-        $( "#display-table" ).animate({
-          marginLeft: '-=104px'
-         }, 125, function() {
-        });
-        //$('#display-table').css({marginLeft: '-=108px'});
-        console.log($('#display-table'));
+      if (keyCode == 37 && experiment.xposition < experiment.gridsize-1) {
+        experiment.xposition ++;
+        if (experiment.stimulustype == 1){
+          $( "#display-table" ).animate({
+            opacity: '0'
+           }, 250, function() {
+              $( "#display-table" ).css({
+                marginLeft: '-=150px'
+                });
+              $( "#display-table" ).animate({
+                opacity: '1'
+                }, 250, function() {});
+          });
+        }
+        else{
+          $( "#display-table" ).animate({
+            marginLeft: '-=150px'
+           }, 250, function() {
+          });
+        }
       } 
-      else if (keyCode == 38) {
-        self.yposition --;
-        $('#display-table').css({marginTop: '-=108px'});
-        console.log($('#display-table'));
-      }
-      else if (keyCode == 39) {
-        self.xposition ++;
-        $('#display-table').css({marginLeft: '+=108px'});
-        console.log($('#display-table'));
-      }
-      else if (keyCode == 40) {
-        self.yposition ++;
-        $('#display-table').css({marginTop: '+=108px'});
-        console.log($('#display-table'));
-      }
-      console.log(self.xposition);
-      console.log(self.yposition);
+      else if (keyCode == 38 && experiment.yposition < experiment.gridsize-1) {
+        experiment.yposition ++;
+        if (experiment.stimulustype == 1){
+          $( "#display-table" ).animate({
+            opacity: '0'
+           }, 250, function() {
+              $( "#display-table" ).css({
+                marginTop: '-=109px',
+                marginBottom: '+=109px'
+                });
+              $( "#display-table" ).animate({
+                opacity: '1'
+                }, 250, function() {});
 
-      /*else {
-        // If a valid key is pressed (code 80 is p, 81 is q),
-        // record the reaction time (current time minus start time), which key was pressed, and what that means (even or odd).
-        var endTime = (new Date()).getTime(),
-            key = (keyCode == 80) ? "p" : "q",
-            userParity = keyBindings[key];
+          });
+        }
+        else{
+          $( "#display-table" ).animate({
+          marginTop: '-=156px',
+          marginBottom: '+=156px'
+         }, 250, function() {
+        });
+        }
+      }
+      else if (keyCode == 39 && experiment.xposition > 0) {
+        experiment.xposition --;
+        if (experiment.stimulustype == 1){
+          $( "#display-table" ).animate({
+            opacity: '0'
+           }, 250, function() {
+              $( "#display-table" ).css({
+                marginLeft: '+=150px'
+                });
+              $( "#display-table" ).animate({
+                opacity: '1'
+                }, 250, function() {});
+          });
+        }
+        else{
+          $( "#display-table" ).animate({
+            marginLeft: '+=150px'
+           }, 250, function() {
+          });
+        }
+      }
+      else if (keyCode == 40 && experiment.yposition > 0) {
+        experiment.yposition --;
+        if (experiment.stimulustype == 1){
+          $( "#display-table" ).animate({
+            opacity: '0'
+           }, 250, function() {
+              $( "#display-table" ).css({
+                marginTop: '+=156px',
+                marginBottom: '-=156px'
+                });
+              $( "#display-table" ).animate({
+                opacity: '1'
+                }, 250, function() {});
+          });
+        }
+        else{
+          $( "#display-table" ).animate({
+            marginTop: '+=156px',
+            marginBottom: '-=156px'
+           }, 250, function() {
+          });        
+        }
+      }
+
+      console.log("X:" + experiment.xposition + " Y:" + experiment.yposition);
+      console.log(experiment.trialinfo[0]);
+      if (experiment.xposition == experiment.trialinfo[0][0] && experiment.yposition == experiment.trialinfo[0][1]) {
+        experiment.trialinfo.shift();
+        console.log("correct");
+        if (experiment.trialinfo.length == 0){
+            var endTime = (new Date()).getTime(),
             data = {
-              stimulus: stimulus,
-              selection: userParity
+              time: endTime - startTime,
+              stimulus: experiment.stimulustype,
+              trial: experiment.currenttrial
             };
-        
-        console.log(data);
-        experiment.data.push(data);
-        // Temporarily clear the number.
-        $("#number").text("");
-        // Wait 500 milliseconds before starting the next trial.
-        setTimeout(experiment.next, 500);
-      }*/
+
+          experiment.data.push(data);
+          experiment.currenttrial ++;
+          setTimeout(experiment.next, 500);
+
+
+
+        }
+      }
     };
     
-    // Here, we actually bind the handler. We're using jQuery's <code>one()</code> function, which ensures that the handler can only run once. This is very important, because generally you only want the handler to run only once per trial. If you don't bind with <code>one()</code>, the handler might run multiple times per trial, which can be disastrous. For instance, if the user accidentally presses P twice, you'll be recording an extra copy of the data for this trial and (even worse) you will be calling <code>experiment.next</code> twice, which will cause trials to be skipped! That said, there are certainly cases where you do want to run an event handler multiple times per trial. In this case, you want to use the <code>bind()</code> and <code>unbind()</code> functions, but you have to be extra careful about properly unbinding.
-    $(document).on("keydown", keyPressHandler);
+    if (experiment.currenttrial == 0){
+      $(document).on("keydown", keyPressHandler);
+    }
     console.log("hi");
     
   }
 }
 
-$(document).ready(function(){
-  experiment.next();
-});
+
