@@ -32,10 +32,16 @@
     <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
   </div>
 		<p id='logo-text'>Stanford Computation and Cognition Lab</p>
-	<p class="block-text">In this experiment, you will be presented with .
+	<p class="block-text">In this experiment, you will be presented with a grid
+		of images, of which you can see only one element. This element is the 
+		top-center icon on the next page. Your task is to traverse the path of
+		four elements, which are show in the smaller row below. As you correctly 
+		find each element, a green border will appear around the element to signify
+		that you have found the element. Upon traversing the path, you will be presented
+		and your top-center view will re-focus on the top left image. Use the
+		up/down/left/right keys on your keyboard to traverse the path.
 		<!-- Tell the subject which keys to press. We need to set these values dynamically; I use <code>{{}}</code> to indicate template locations in HTML that will be modified by JavaScript. -->
-		Press <span id="even-key">{{}}</span> if you think the left picture is cuter and
-		<span id="odd-key">{{}}</span> if the right picture is cuter.		
+				
 	</p>
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
 	<button type="button" onclick="this.blur(); experiment.next()">Start</button>
