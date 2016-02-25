@@ -232,7 +232,7 @@ var experiment = {
               stimulus: experiment.stimulustype,
               trial: experiment.currenttrial
             };
-
+          //experiment.stimulustype = 0;
           experiment.data.push(data);
           experiment.currenttrial ++;
           setTimeout(experiment.next, 500);
@@ -246,7 +246,6 @@ var experiment = {
     if (experiment.currenttrial == 0){
       $(document).on("keydown", keyPressHandler);
     }
-    console.log("hi");
     
   }
 }
