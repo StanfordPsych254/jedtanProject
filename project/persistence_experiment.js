@@ -65,7 +65,10 @@ var experiment = {
   // Parameters for this sequence.
   // Experiment-specific parameters - which keys map to odd/even
   movement_constant: 100,
-  alltrials: [[2, 14, 5, 6], [3, 6, 9, 12]],
+  gridConfigurations: [[8, 4, 14, 9, 5, 16, 2, 6, 10, 12, 11, 1, 13, 7, 15, 3], [3, 14, 5, 4, 7, 9, 12, 11, 8, 16, 13, 10, 2, 6, 15, 1], [16, 2, 1, 4, 14, 7, 6, 13, 15, 5, 12, 8, 3, 9, 10, 11], [10, 8, 13, 6, 9, 12, 16, 14, 5, 4, 3, 11, 7, 1, 15, 2]],
+  alltrials: [[8, 12], [3, 14]],
+
+  //[16, 14, 10, 13], [11, 16, 8, 13], [3, 8, 14, 4], [12, 13, 16, 11], [2, 9, 7, 5], [2, 7, 10, 12], [12, 16, 8, 5], [14, 2, 6, 16], [16, 8, 13, 3], [13, 3, 6, 16], [8, 12, 3, 16], [1, 16, 2, 5], [14, 2, 15, 11], [7, 6, 1, 11], [9, 3, 15, 4], [13, 5, 12, 6], [15, 7, 11, 2]],
   trials: allPuppies.length,
   // An array to store the data that we're collecting.
   data: [],
@@ -79,21 +82,44 @@ var experiment = {
   },
   // The work horse of the sequence - what to do on every trial.
   next: function() {
+
+    //GENERATE NEW GRID IF GRID HAS BEEN EXHAUSTED
+    for(var i = 0; i < 16; i++){
+
+    }
+
+    //RESET CURRENT POSITION IN TRIAL, SET KEYPRESSES TO ZERO, RESET POSITION/TRIALS
+    experiment.keypresses = 0;
     experiment.currpos = 0;
+    experiment.xposition = 0;
+    experiment.yposition = 0;
+    experiment.trials--;
+
+    //CSS RESET
     $('body').css({'background-color': 'black'});
     showSlide("stage");
+
+    //END
     if (experiment.alltrials.length == 0) {
       experiment.end();
       return;
     }
+
+    //INCREMENT TO NEXT TRIAL
     trial_values = experiment.alltrials.shift();
     trial_info = [];
     for (var val in trial_values){
       trial_info.push([(trial_values[val]-1) % experiment.gridsize, Math.floor((trial_values[val]-1) / experiment.gridsize)]);
     }
+
+    //GENERATE PATH HTML
     experiment.trialinfo = trial_info;
     console.log(experiment.trialinfo);
-    var html_string = "<table id='path-holder'><tr><td><img src='images/" + trial_values[0] + ".jpg'></img></td><td><img src='images/" + trial_values[1] + ".jpg'></img></td><td><img src='images/" + trial_values[2] + ".jpg'></img></td><td><img src='images/" + trial_values[3] + ".jpg'></img></td></tr></table>";
+    var html_string = "<table id='path-holder'><tr>"
+    for (var j = 0; j < trial_values.length; j++){
+      html_string += "<td><img src='images/" + trial_values[j] + ".jpg'></img></td>"
+    }
+    html_string += "</tr></table>";
     var left_string = "+=" + experiment.xposition * 150 + "px";
     $('#path').html(html_string);
     $( "#display-table" ).css({
@@ -101,22 +127,9 @@ var experiment = {
                 margin: '0 auto'
                 });
 
-    /*$( "#display-table" ).animate({
-          
-      }, 125, function() {
-    }); */
-
-    experiment.xposition = 0;
-    experiment.yposition = 0;
-    
-    experiment.trials--;
-    
-
     var keyBindings = {};
     var stimulus = [];
-    var position = randomInteger(2);
 
-    // Display the number stimulus.
     
    
     
@@ -128,7 +141,8 @@ var experiment = {
       // A slight disadvantage of this code is that you have to test for numeric key values; instead of writing code that expresses "*do X if 'Q' was pressed*", you have to do the more complicated "*do X if the key with code 80 was pressed*". A library like [Keymaster](http://github.com/madrobby/keymaster) lets you write simpler code like <code>key('a', function(){ alert('you pressed a!') })</code>, but I've omitted it here. Here, we get the numeric key code from the event object
       var keyCode = event.which;
       
-      if (keyCode == 37 && experiment.xposition < experiment.gridsize-1) {
+      if (keyCode == 39 && experiment.xposition < experiment.gridsize-1) {
+        experiment.keypresses ++;
         experiment.xposition ++;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -149,7 +163,8 @@ var experiment = {
           });
         }
       } 
-      else if (keyCode == 38 && experiment.yposition < experiment.gridsize-1) {
+      else if (keyCode == 40 && experiment.yposition < experiment.gridsize-1) {
+        experiment.keypresses ++;
         experiment.yposition ++;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -173,7 +188,8 @@ var experiment = {
         });
         }
       }
-      else if (keyCode == 39 && experiment.xposition > 0) {
+      else if (keyCode == 37 && experiment.xposition > 0) {
+        experiment.keypresses ++;
         experiment.xposition --;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -194,7 +210,8 @@ var experiment = {
           });
         }
       }
-      else if (keyCode == 40 && experiment.yposition > 0) {
+      else if (keyCode == 38 && experiment.yposition > 0) {
+        experiment.keypresses ++;
         experiment.yposition --;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -228,6 +245,7 @@ var experiment = {
         if (experiment.trialinfo.length == 0){
             var endTime = (new Date()).getTime(),
             data = {
+              keypresses: experiment.keypresses,
               time: endTime - startTime,
               stimulus: experiment.stimulustype,
               trial: experiment.currenttrial

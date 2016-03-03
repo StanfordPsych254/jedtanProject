@@ -59,6 +59,16 @@
 		participation will not receive any personal information about you.</p>
 </div>
 
+<div class="slide" id="instructions">
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+		<p id='logo-text'>Stanford Computation and Cognition Lab</p>
+	<p class="block-text">You have just finished a block of trials. Please press start to continue to the next block of trials. </p>
+	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
+	<button type="button" onclick="this.blur(); experiment.next()">Continue</button>
+</div>
+
 <div class="slide" id="stage">
 
 	<div id="grid-holder">
