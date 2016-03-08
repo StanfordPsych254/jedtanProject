@@ -44,7 +44,7 @@
 				
 	</p>
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
-	<button type="button" onclick="this.blur(); experiment.next()">Start</button>
+	<button type="button" onclick="this.blur(); experiment.furtherDirections(); ">Start</button>
 	<!-- Legal blurb that we're required to show. -->
 	<p class="block-text" id="legal">Legal information: By answering the
 		following questions, you are participating in a study being performed by
@@ -59,14 +59,56 @@
 		participation will not receive any personal information about you.</p>
 </div>
 
-<div class="slide" id="instructions">
+<div class="slide" id="further-instructions">
+	<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+		<p id='logo-text'>Stanford Computation and Cognition Lab</p>
+	<p class="block-text">You will have two sample trials of two icon paths to traverse. Click start to begin! </p>
+	<button type="button" onclick="this.blur(); experiment.next();">Continue</button>
+</div>
+
+<div class="slide" id="tutorial-completed">
+	<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+		<p id='logo-text'>Stanford Computation and Cognition Lab</p>
+	<p class="block-text">You have completed the tutorial! For the rest of the experiment, you will be doing 4 blocks of traversing 20 different paths! Click Continue to go on!</p>
+	<button type="button" onclick="this.blur(); experiment.next();">Continue</button>
+</div>
+
+<div class="slide" id="continue">
   <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
     <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
   </div>
 		<p id='logo-text'>Stanford Computation and Cognition Lab</p>
 	<p class="block-text">You have just finished a block of trials. Please press start to continue to the next block of trials. </p>
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
-	<button type="button" onclick="this.blur(); experiment.next()">Continue</button>
+	<button type="button" onclick="this.blur(); experiment.next();">Continue</button>
+</div>
+
+<div class="slide" id="debrief-form">
+	<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+  <p id='logo-text'>Stanford Computation and Cognition Lab</p>
+  <p class="block-text">
+You have finished all the blocks! You have one remaining step before you finish. 
+<br/><br/>Please select your age:
+<input id="agepicker" type="number"/>
+	</p>
+	<button type="button" onclick="this.blur(); experiment.ending()">Continue</button>
+</div>
+
+<div class="slide" id="debriefing">
+	<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+  <p id='logo-text'>Stanford Computation and Cognition Lab</p>
+  <p class="block-text">
+Thank you for participating in this study. The purpose of this study was to explore the role of object persistence in spatial navigation. Observations made from this study have potential application in areas such as smartphone or application vision and design. In this study we asked participants to attempt to traverse grids of elements one element at a time with grid movement transitions designed to represent a persistent grid of objects (or not a persistent grid of objects). If you would like to learn more about this topic feel free to contact me at jedtan at stanford.edu at a later date. If you would like to receive a copy of the results we can email them to you at the end of the study. Again, thank you for your participation in our research.
+	</p>
+	<button type="button" onclick="this.blur(); experiment.end()">Continue</button>
 </div>
 
 <div class="slide" id="stage">

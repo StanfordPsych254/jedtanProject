@@ -13,6 +13,7 @@
 	position: absolute;
 	margin-left: -465px;
 	margin-top: -475px;
+	z-index: 0;
 }
 #display-table img{
 	max-width: 150px;
@@ -57,6 +58,8 @@ body {
 	font-size: 16px;
 }
 #display-table{
+	position: absolute;
+	z-index: -5;
 
 }
 /* We manage display using "slides". A slide is a <code>div</code> that takes up the entire page. Only one slide should be visible at a time. Navigation between slides is most sensibly accomplished using using buttons, rather than keyboard events. */
@@ -108,7 +111,7 @@ button[disabled] {
   font-weight: bold;
 }
 
-#instructions {
+#instructions, #further-instructions, #tutorial-completed, #continue, #debriefing, #debrief-form {
   text-align: center;
 }
 
