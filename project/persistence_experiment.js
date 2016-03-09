@@ -89,7 +89,10 @@ var experiment = {
   },
   end: function() {
     // Show the finish slide.
-    experiment.age = $('#agepicker').val()
+    experiment.age = $('#agepicker').val();
+    experiment.race = $( "#race option:selected" ).text();;
+    experiment.gender = $("#gender option:selected").text();
+
     showSlide("finished");
     setTimeout(function() { turk.submit(experiment) }, 1500);
     console.log(experiment);
@@ -140,7 +143,7 @@ var experiment = {
         $('#display-table').html(table_string);
         experiment.bindFlag = true;
         //reset trials
-        experiment.alltrials = experiment.totaltrials.shift();
+        experiment.alltrials = experiment.superabridgedtotal.shift();
         //experiment.alltrials = experiment.totaltrials.shift();
       }
     }
@@ -239,7 +242,7 @@ var experiment = {
             $( "#display-table" ).css({
               marginLeft: '-=154px'
             });
-            $( "#display-table" ).animate({
+            setTimeout(66, $( "#display-table" ).animate({
               opacity: '1'
             }, 200, function() {
               experiment.xposition ++;
@@ -247,7 +250,7 @@ var experiment = {
               console.log("bound");
               $(document).unbind("keydown", experiment.keyPressHandler);
               $(document).on("keydown", experiment.keyPressHandler);
-            });
+            }))
           });
         }
         else{

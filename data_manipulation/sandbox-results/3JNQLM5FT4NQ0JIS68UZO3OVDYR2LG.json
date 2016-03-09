@@ -1,0 +1,637 @@
+{
+    "AutoApprovalTime": "2016-03-09T01:17:02Z",
+    "AssignmentId": "3JNQLM5FT4NQ0JIS68UZO3OVDYR2LG",
+    "WorkerId": "A1U7TUH6M4PL9O",
+    "answers": {
+        "data": {
+            "abridgedtotal": [
+                [
+                    [
+                        8,
+                        10,
+                        6,
+                        15
+                    ],
+                    [
+                        9,
+                        5,
+                        16,
+                        6
+                    ]
+                ],
+                [
+                    [
+                        2,
+                        1,
+                        10,
+                        8
+                    ],
+                    [
+                        1,
+                        6,
+                        9,
+                        12
+                    ]
+                ],
+                [
+                    [
+                        15,
+                        4,
+                        3,
+                        14
+                    ],
+                    [
+                        7,
+                        16,
+                        4,
+                        9
+                    ]
+                ],
+                [
+                    [
+                        5,
+                        13,
+                        4,
+                        9
+                    ],
+                    [
+                        2,
+                        10,
+                        16,
+                        13
+                    ]
+                ]
+            ],
+            "currpos": 4,
+            "stimulustype": false,
+            "gridsize": 4,
+            "trials": null,
+            "bindFlag": true,
+            "keypresses": 21,
+            "movement_constant": 100,
+            "lock": 1,
+            "trialinfo": [],
+            "superabridgedtotal": [
+                [
+                    [
+                        8,
+                        10,
+                        6,
+                        15
+                    ]
+                ],
+                [
+                    [
+                        2,
+                        1,
+                        10,
+                        8
+                    ]
+                ],
+                [
+                    [
+                        15,
+                        4,
+                        3,
+                        14
+                    ]
+                ],
+                [
+                    [
+                        5,
+                        13,
+                        4,
+                        9
+                    ]
+                ]
+            ],
+            "tutorial_completed": 1,
+            "gridConfigurations": [],
+            "startTime": 1457485902805,
+            "data": [
+                {
+                    "keypresses": 11,
+                    "stimulus": 0,
+                    "trial": 0,
+                    "time": 6195
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": 0,
+                    "trial": 1,
+                    "time": 5334
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": true,
+                    "trial": 2,
+                    "time": 7582
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": true,
+                    "trial": 3,
+                    "time": 6602
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 4,
+                    "time": 13361
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": true,
+                    "trial": 5,
+                    "time": 11302
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 6,
+                    "time": 15629
+                },
+                {
+                    "keypresses": 25,
+                    "stimulus": true,
+                    "trial": 7,
+                    "time": 19880
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": true,
+                    "trial": 8,
+                    "time": 12222
+                },
+                {
+                    "keypresses": 31,
+                    "stimulus": true,
+                    "trial": 9,
+                    "time": 21096
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 10,
+                    "time": 12298
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 11,
+                    "time": 17573
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": true,
+                    "trial": 12,
+                    "time": 14152
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 13,
+                    "time": 13741
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": true,
+                    "trial": 14,
+                    "time": 6881
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": true,
+                    "trial": 15,
+                    "time": 6786
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": true,
+                    "trial": 16,
+                    "time": 11695
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": true,
+                    "trial": 17,
+                    "time": 7664
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 18,
+                    "time": 9751
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 19,
+                    "time": 18279
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 20,
+                    "time": 12737
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": true,
+                    "trial": 21,
+                    "time": 16079
+                },
+                {
+                    "keypresses": 22,
+                    "stimulus": false,
+                    "trial": 22,
+                    "time": 14502
+                },
+                {
+                    "keypresses": 28,
+                    "stimulus": false,
+                    "trial": 23,
+                    "time": 16065
+                },
+                {
+                    "keypresses": 34,
+                    "stimulus": false,
+                    "trial": 24,
+                    "time": 19202
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 25,
+                    "time": 10426
+                },
+                {
+                    "keypresses": 41,
+                    "stimulus": false,
+                    "trial": 26,
+                    "time": 24945
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": false,
+                    "trial": 27,
+                    "time": 11900
+                },
+                {
+                    "keypresses": 19,
+                    "stimulus": false,
+                    "trial": 28,
+                    "time": 11095
+                },
+                {
+                    "keypresses": 40,
+                    "stimulus": false,
+                    "trial": 29,
+                    "time": 21538
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": false,
+                    "trial": 30,
+                    "time": 9802
+                },
+                {
+                    "keypresses": 22,
+                    "stimulus": false,
+                    "trial": 31,
+                    "time": 16297
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": false,
+                    "trial": 32,
+                    "time": 12920
+                },
+                {
+                    "keypresses": 28,
+                    "stimulus": false,
+                    "trial": 33,
+                    "time": 18609
+                },
+                {
+                    "keypresses": 35,
+                    "stimulus": false,
+                    "trial": 34,
+                    "time": 20568
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 35,
+                    "time": 8018
+                },
+                {
+                    "keypresses": 38,
+                    "stimulus": false,
+                    "trial": 36,
+                    "time": 22465
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 37,
+                    "time": 8791
+                },
+                {
+                    "keypresses": 21,
+                    "stimulus": false,
+                    "trial": 38,
+                    "time": 12832
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": false,
+                    "trial": 39,
+                    "time": 5702
+                },
+                {
+                    "keypresses": 33,
+                    "stimulus": false,
+                    "trial": 40,
+                    "time": 20279
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": false,
+                    "trial": 41,
+                    "time": 12841
+                },
+                {
+                    "keypresses": 32,
+                    "stimulus": true,
+                    "trial": 42,
+                    "time": 21314
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 43,
+                    "time": 16755
+                },
+                {
+                    "keypresses": 23,
+                    "stimulus": true,
+                    "trial": 44,
+                    "time": 15938
+                },
+                {
+                    "keypresses": 22,
+                    "stimulus": true,
+                    "trial": 45,
+                    "time": 14692
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 46,
+                    "time": 10856
+                },
+                {
+                    "keypresses": 39,
+                    "stimulus": true,
+                    "trial": 47,
+                    "time": 28593
+                },
+                {
+                    "keypresses": 31,
+                    "stimulus": true,
+                    "trial": 48,
+                    "time": 21625
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": true,
+                    "trial": 49,
+                    "time": 13026
+                },
+                {
+                    "keypresses": 25,
+                    "stimulus": true,
+                    "trial": 50,
+                    "time": 17522
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 51,
+                    "time": 16119
+                },
+                {
+                    "keypresses": 26,
+                    "stimulus": true,
+                    "trial": 52,
+                    "time": 20870
+                },
+                {
+                    "keypresses": 19,
+                    "stimulus": true,
+                    "trial": 53,
+                    "time": 15601
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 54,
+                    "time": 12000
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": true,
+                    "trial": 55,
+                    "time": 10360
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 56,
+                    "time": 13484
+                },
+                {
+                    "keypresses": 31,
+                    "stimulus": true,
+                    "trial": 57,
+                    "time": 22660
+                },
+                {
+                    "keypresses": 31,
+                    "stimulus": true,
+                    "trial": 58,
+                    "time": 21510
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 59,
+                    "time": 12964
+                },
+                {
+                    "keypresses": 31,
+                    "stimulus": true,
+                    "trial": 60,
+                    "time": 23528
+                },
+                {
+                    "keypresses": 29,
+                    "stimulus": true,
+                    "trial": 61,
+                    "time": 21121
+                },
+                {
+                    "keypresses": 30,
+                    "stimulus": false,
+                    "trial": 62,
+                    "time": 17013
+                },
+                {
+                    "keypresses": 28,
+                    "stimulus": false,
+                    "trial": 63,
+                    "time": 15811
+                },
+                {
+                    "keypresses": 23,
+                    "stimulus": false,
+                    "trial": 64,
+                    "time": 15622
+                },
+                {
+                    "keypresses": 37,
+                    "stimulus": false,
+                    "trial": 65,
+                    "time": 20482
+                },
+                {
+                    "keypresses": 23,
+                    "stimulus": false,
+                    "trial": 66,
+                    "time": 14304
+                },
+                {
+                    "keypresses": 25,
+                    "stimulus": false,
+                    "trial": 67,
+                    "time": 13665
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": false,
+                    "trial": 68,
+                    "time": 8404
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": false,
+                    "trial": 69,
+                    "time": 12376
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": false,
+                    "trial": 70,
+                    "time": 13140
+                },
+                {
+                    "keypresses": 35,
+                    "stimulus": false,
+                    "trial": 71,
+                    "time": 20203
+                },
+                {
+                    "keypresses": 23,
+                    "stimulus": false,
+                    "trial": 72,
+                    "time": 13239
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 73,
+                    "time": 8590
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": false,
+                    "trial": 74,
+                    "time": 16720
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": false,
+                    "trial": 75,
+                    "time": 15222
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 76,
+                    "time": 7658
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": false,
+                    "trial": 77,
+                    "time": 8696
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": false,
+                    "trial": 78,
+                    "time": 5394
+                },
+                {
+                    "keypresses": 42,
+                    "stimulus": false,
+                    "trial": 79,
+                    "time": 25999
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 80,
+                    "time": 7210
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": false,
+                    "trial": 81,
+                    "time": 11285
+                }
+            ],
+            "current_grid": [
+                10,
+                8,
+                13,
+                6,
+                9,
+                12,
+                16,
+                14,
+                5,
+                4,
+                3,
+                11,
+                7,
+                1,
+                15,
+                2
+            ],
+            "yposition": 0,
+            "totaltrials": [],
+            "age": "22",
+            "xposition": 1,
+            "alltrials": [],
+            "block_completed": 1,
+            "currenttrial": 82
+        }
+    },
+    "AcceptTime": "2016-03-09T00:50:36Z",
+    "HITId": "366FYU4PTGQ4O9EWOQ8XMKONHC8KE4",
+    "Assignment": "",
+    "AssignmentStatus": "Submitted",
+    "SubmitTime": "2016-03-09T01:12:02Z"
+}

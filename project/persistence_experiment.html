@@ -46,17 +46,8 @@
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
 	<button type="button" onclick="this.blur(); experiment.furtherDirections(); ">Start</button>
 	<!-- Legal blurb that we're required to show. -->
-	<p class="block-text" id="legal">Legal information: By answering the
-		following questions, you are participating in a study being performed by
-		cognitive scientists in the Stanford Department of Psychology. If you have
-		questions about this research, please contact Jed Tan at <a
-		href="mailto://jedtan@stanford.edu">jedtan@stanford.edu</a> 
-		You must be  at least 18 years old to participate. 
-		Your participation in this research is voluntary. You may
-		decline to answer any or all of the following questions. You may decline
-		further participation, at any time, without adverse consequences. Your
-		anonymity is assured; the researchers who have requested your
-		participation will not receive any personal information about you.</p>
+	<p class="block-text" id="legal">Legal information: By participating in the following experiment, you are participating in a study being performed by the Stanford Department of Psychology. If you have questions about this research, please contact us at <a href="mailto://jedtan@stanford.edu">stanfordpysch254@gmail.com</a>. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you. Note however that we have recently been made aware that your public Amazon.com profile can be accessed via your worker ID if you do not choose to opt out. If you would like to opt out of this feature, you may follow instructions available <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
+		
 </div>
 
 <div class="slide" id="further-instructions">
@@ -96,6 +87,26 @@
 You have finished all the blocks! You have one remaining step before you finish. 
 <br/><br/>Please select your age:
 <input id="agepicker" type="number"/>
+<br/>
+Please select your race:
+<select id="race">
+    <option>Caucasian</option>
+    <option>American Indian or Alaska Native</option>
+    <option>Asian</option>
+    <option>Black or African American</option>
+    <option>Native Hawaiian or Other Pacific Islander</option>
+    <option>White</option>
+    <option>Other Race</option>
+    <option>Decline to State</option>
+</select>
+<br/>
+Please select your gender:
+<select id="gender">
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+    <option>Decline to State</option>
+</select>
 	</p>
 	<button type="button" onclick="this.blur(); experiment.ending()">Continue</button>
 </div>
@@ -108,7 +119,7 @@ You have finished all the blocks! You have one remaining step before you finish.
   <p class="block-text">
 Thank you for participating in this study. The purpose of this study was to explore the role of object persistence in spatial navigation. Observations made from this study have potential application in areas such as smartphone or application vision and design. In this study we asked participants to attempt to traverse grids of elements one element at a time with grid movement transitions designed to represent a persistent grid of objects (or not a persistent grid of objects). If you would like to learn more about this topic feel free to contact me at jedtan at stanford.edu at a later date. If you would like to receive a copy of the results we can email them to you at the end of the study. Again, thank you for your participation in our research.
 	</p>
-	<button type="button" onclick="this.blur(); experiment.end()">Continue</button>
+	<button type="button" onclick="this.blur(); experiment.end()">Finish HIT</button>
 </div>
 
 <div class="slide" id="stage">
