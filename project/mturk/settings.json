@@ -1,14 +1,15 @@
 {
-    "title":               "Puppies and Kittens",
-    "description":         "Pick which animal is cuter!",
-    "keywords":            "puppies, kittens, cute",
-    "url":                 "http://stanford.edu/~jedtan/puppiesandkittens/puppiesandkittens/even-odd.html",
+    "title":               "Object Persistence Experiment",
+    "description":         "Use keyboard to navigate a grid of figures to analyze the efficacy of different transitions",
+    "keywords":            "puppy, kitten, cute",
+    "url":                 "http://stanford.edu/~jedtan/jedtanProject/project/persistence_experiment.html",
     "frame_height":         450,
-    "assignment_duration":  "1 minute",
+    "assignment_duration":  "20 minute",
     "auto_approval_delay":  "5 minutes",
-    "reward":               0.05,
+    "reward":               1.00,
     "qualifications": {
         "location": "US",
         "approval_percentage": 85
     }
 }
+
