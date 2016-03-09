@@ -11,7 +11,24 @@
 // 6. The key press listener, when it detects either a P or a Q, constructs a data object, which includes the presented stimulus number, RT (current time - start time), and whether or not the subject was correct. This entire object gets pushed into the <code>experiment.data</code> array. Then we show a blank screen and wait 500 milliseconds before calling <code>experiment.next()</code> again.
 
 // ## Helper functions
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 // Shows slides. We're using jQuery here - the **$** is the jQuery selector function, which takes as input either a DOM element or a CSS selector string.
 function showSlide(id) {
   // Hide all slides
@@ -113,6 +130,14 @@ var experiment = {
         experiment.tutorial_completed = 1;
         experiment.block_completed = 0;
         showSlide("tutorial-completed");
+        for(var i = 0; i < experiment.totaltrials.length; i++){
+          experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
+          experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
+        }
+        experiment.trialOrder = experiment.totaltrials
+        console.log(experiment.trialOrder)
+        console.log(experiment.abridgedtotal)
+
         return;
       }
       else if(experiment.gridConfigurations.length == 0){
@@ -143,7 +168,7 @@ var experiment = {
         $('#display-table').html(table_string);
         experiment.bindFlag = true;
         //reset trials
-        experiment.alltrials = experiment.superabridgedtotal.shift();
+        experiment.alltrials = experiment.abridgedtotal.shift();
         //experiment.alltrials = experiment.totaltrials.shift();
       }
     }
