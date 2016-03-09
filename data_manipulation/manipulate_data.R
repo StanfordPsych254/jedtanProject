@@ -25,7 +25,7 @@ ggplot(data=totalMeans, aes(x=epoch, y=meanTime, group = Stimulus, colour = Stim
   geom_line() +
   geom_point( size=4, shape=21, fill="white")
 
-ggplot(data=overTrial, aes(x=trial, y=meanTime, group = Stimulus, colour = Stimulus)) +
+ggplot(data=overTrial, aes(x=Trial, y=meanTime, group = Stimulus, colour = Stimulus)) +
   geom_line() +
   geom_point( size=4, shape=21, fill="white")
 
