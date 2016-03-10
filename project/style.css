@@ -2,20 +2,27 @@
 /* This stuff can be ported from experiment to experiment.*/
 
 /* We want the page to sit flush inside the browser window - that means no margins or padding. Also, use a nice-looking serif font. */
-#leftanimal img{
-	max-width: 400px;
-}
-#rightanimal img{
-	max-width: 400px;
-}
 
+.progress{
+	position: fixed;
+	width: 500px;
+	z-index: 10;
+	left: 50%;
+	top: 85%;
+	margin-left: -250px;
+
+}
+.progress-bar{
+	color: black !important;
+}
 #img-mask{
 	position: absolute;
-	margin-left: -465px;
+	margin-left: -484px;
 	margin-top: -475px;
-	z-index: 0;
+	z-index: 1;
 }
 #display-table img{
+	padding-left: -1px;
 	max-width: 150px;
 }
 #path-holder img{
@@ -47,6 +54,8 @@ table{
 }
 td{
 	padding: 0px 4px 0px 0px;
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
 }
 tr{
 	padding: 0px;
@@ -60,6 +69,7 @@ body {
 #display-table{
 	position: absolute;
 	z-index: -5;
+	background-color: white;
 
 }
 /* We manage display using "slides". A slide is a <code>div</code> that takes up the entire page. Only one slide should be visible at a time. Navigation between slides is most sensibly accomplished using using buttons, rather than keyboard events. */

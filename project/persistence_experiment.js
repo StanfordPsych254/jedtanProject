@@ -11,6 +11,8 @@
 // 6. The key press listener, when it detects either a P or a Q, constructs a data object, which includes the presented stimulus number, RT (current time - start time), and whether or not the subject was correct. This entire object gets pushed into the <code>experiment.data</code> array. Then we show a blank screen and wait 500 milliseconds before calling <code>experiment.next()</code> again.
 
 // ## Helper functions
+
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -74,6 +76,8 @@ console.log("hi");
 // I implement the sequence as an object with properties and methods. The benefit of encapsulating everything in an object is that it's conceptually coherent (i.e. the <code>data</code> variable belongs to this particular sequence and not any other) and allows you to **compose** sequences to build more complicated experiments. For instance, if you wanted an experiment with, say, a survey, a reaction time test, and a memory test presented in a number of different orders, you could easily do so by creating three separate sequences and dynamically setting the <code>end()</code> function for each sequence so that it points to the next. **More practically, you should stick everything in an object and submit that whole object so that you don't lose data (e.g. randomization parameters, what condition the subject is in, etc). Don't worry about the fact that some of the object properties are functions -- mmturkey (the Turk submission library) will strip these out.**
 
 var experiment = {
+  trialsInBlock: 2,
+  block: 0,
   currenttrial: 0,
   stimulustype: 0,
   tutorial_completed: 0,
@@ -121,12 +125,21 @@ var experiment = {
   },
   // The work horse of the sequence - what to do on every trial.
   next: function() {
+    console.log($("#progress").attr('aria-valuenow'));
+    console.log(experiment.currenttrial);
+    console.log(experiment.trialsInBlock);
+
+    $("#progress").attr('aria-valuenow', 100 * experiment.currenttrial/experiment.trialsInBlock);
+    $("#progress").css({'width': 100 * experiment.currenttrial/experiment.trialsInBlock + "%"});
+    $("#progress").html((100 * experiment.currenttrial/experiment.trialsInBlock) + "%");
     $(document).unbind("keydown");
     $("#display-table").finish();
     //END
     if (experiment.alltrials.length == 0) {
       if (experiment.tutorial_completed == 0){
+        experiment.currenttrial -= 2;
         $('body').css({'background-color': 'white'});
+        experiment.block --;
         experiment.tutorial_completed = 1;
         experiment.block_completed = 0;
         showSlide("tutorial-completed");
@@ -135,8 +148,6 @@ var experiment = {
           experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
         }
         experiment.trialOrder = experiment.totaltrials
-        console.log(experiment.trialOrder)
-        console.log(experiment.abridgedtotal)
 
         return;
       }
@@ -152,6 +163,10 @@ var experiment = {
       }
       else{
         //GENERATE NEW GRID IF GRID HAS BEEN EXHAUSTED
+        $("#progress").attr('aria-valuenow', 0);
+        $("#progress").css({'width': "0%"});
+        $("#progress").html("0%");
+        experiment.block ++;
         experiment.stimulustype = !experiment.stimulustype;
         experiment.current_grid = experiment.gridConfigurations.shift();
         var table_string = ""
@@ -162,13 +177,14 @@ var experiment = {
             table_string += row_string;
             row_string = "<tr>";
           }
-          row_string += "<td><img src=\"images/" + experiment.current_grid[i] + ".jpg\"></img></td>"
+          row_string += "<td><img src=\"images/" + (experiment.block * 16 + experiment.current_grid[i]) + ".jpg\"></img></td>"
         }
         table_string += row_string + "</tr>";
         $('#display-table').html(table_string);
         experiment.bindFlag = true;
         //reset trials
-        experiment.alltrials = experiment.abridgedtotal.shift();
+        experiment.alltrials = experiment.totaltrials.shift();
+        experiment.trialsInBlock = experiment.alltrials.length;
         //experiment.alltrials = experiment.totaltrials.shift();
       }
     }
@@ -198,9 +214,12 @@ var experiment = {
     experiment.trialinfo = trial_info;
     console.log(experiment.trialinfo);
     var html_string = "<table id='path-holder'><tr>"
+    console.log("BLOCK ")
     for (var j = 0; j < trial_values.length; j++){
-      html_string += "<td><img src='images/" + trial_values[j] + ".jpg'></img></td>"
+      console.log(experiment.block * 16 + trial_values[j])
+      html_string += "<td><img src='images/" + (experiment.block * 16 + trial_values[j]) + ".jpg'></img></td>"
     }
+    console.log(html_string)
     html_string += "</tr></table>";
     var left_string = "+=" + experiment.xposition * 150 + "px";
     $('#path').html(html_string);
@@ -238,11 +257,12 @@ var experiment = {
             keypresses: experiment.keypresses,
             time: endTime - experiment.startTime,
             stimulus: experiment.stimulustype,
-            trial: experiment.currenttrial
+            trial: experiment.currenttrial,
+            block: experiment.block
           };
             //experiment.stimulustype = 0;
             experiment.data.push(data);
-            experiment.currenttrial ++;
+            experiment.currenttrial = experiment.currenttrial - 20 * experiment.block + 1;
             experiment.block_completed = 1;
             $(document).unbind("keydown");
             setTimeout(experiment.next, 900);
@@ -263,19 +283,18 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-          }, 200, function() {
+          }, 167, function() {
             $( "#display-table" ).css({
               marginLeft: '-=154px'
             });
-            setTimeout(66, $( "#display-table" ).animate({
-              opacity: '1'
-            }, 200, function() {
-              experiment.xposition ++;
-              experiment.testKey();
-              console.log("bound");
-              $(document).unbind("keydown", experiment.keyPressHandler);
-              $(document).on("keydown", experiment.keyPressHandler);
-            }))
+            setTimeout(function(){
+              $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
+                experiment.xposition ++;
+                experiment.testKey();
+                console.log("bound");
+                $(document).unbind("keydown", experiment.keyPressHandler);
+                $(document).on("keydown", experiment.keyPressHandler);
+              });}, 66);
           });
         }
         else{
@@ -297,27 +316,25 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-          }, 200, function() {
+          }, 167, function() {
             $( "#display-table" ).css({
-              marginTop: '-=156px',
-              marginBottom: '+=156px'
+              marginTop: '-=155px',
+              marginBottom: '+=155px'
             });
-            $( "#display-table" ).animate({
-              opacity: '1'
-            }, 200, function() {
-            experiment.yposition ++;
-             experiment.testKey();
-             console.log("bound");
-             $(document).unbind("keydown", experiment.keyPressHandler);
-             $(document).on("keydown", experiment.keyPressHandler);
-           });
-
+            setTimeout(function(){
+              $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
+                experiment.yposition ++;
+                experiment.testKey();
+                console.log("bound");
+                $(document).unbind("keydown", experiment.keyPressHandler);
+                $(document).on("keydown", experiment.keyPressHandler);
+              });}, 66);
           });
         }
         else{
           $( "#display-table" ).animate({
-            marginTop: '-=156px',
-            marginBottom: '+=156px'
+            marginTop: '-=155px',
+            marginBottom: '+=155px'
           }, 400, function() {
            experiment.yposition ++;
            experiment.testKey();
@@ -334,20 +351,19 @@ var experiment = {
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
             opacity: '0'
-          }, 200, function() {
+          }, 167, function() {
             $( "#display-table" ).css({
               marginLeft: '+=154px'
             });
-            $( "#display-table" ).animate({
-              opacity: '1'
-            }, 200, function() {
-             experiment.xposition --;
-             experiment.testKey();
-             console.log("bound");
-             $(document).unbind("keydown", experiment.keyPressHandler);
-             $(document).on("keydown", experiment.keyPressHandler);
+            setTimeout(function(){
+              $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
+                experiment.xposition --;
+                experiment.testKey();
+                console.log("bound");
+                $(document).unbind("keydown", experiment.keyPressHandler);
+                $(document).on("keydown", experiment.keyPressHandler);
+              });}, 66);
            });
-          });
         }
         else{
           $( "#display-table" ).animate({
@@ -370,24 +386,23 @@ var experiment = {
             opacity: '0'
           }, 200, function() {
             $( "#display-table" ).css({
-              marginTop: '+=156px',
-              marginBottom: '-=156px'
+              marginTop: '+=155px',
+              marginBottom: '-=155px'
             });
-            $( "#display-table" ).animate({
-              opacity: '1'
-            }, 200, function() {
-              console.log("bound");
-              experiment.yposition --;
-              experiment.testKey();
-              $(document).unbind("keydown", experiment.keyPressHandler);
-              $(document).on("keydown", experiment.keyPressHandler);
-            });
+             setTimeout(function(){
+              $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
+                experiment.yposition --;
+                experiment.testKey();
+                console.log("bound");
+                $(document).unbind("keydown", experiment.keyPressHandler);
+                $(document).on("keydown", experiment.keyPressHandler);
+              });}, 66);
           });
         }
         else{
           $( "#display-table" ).animate({
-            marginTop: '+=156px',
-            marginBottom: '-=156px'
+            marginTop: '+=155px',
+            marginBottom: '-=155px'
           }, 400, function() {
             experiment.yposition --;
             console.log("bound");
