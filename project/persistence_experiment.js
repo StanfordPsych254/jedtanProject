@@ -11,6 +11,7 @@
 // 6. The key press listener, when it detects either a P or a Q, constructs a data object, which includes the presented stimulus number, RT (current time - start time), and whether or not the subject was correct. This entire object gets pushed into the <code>experiment.data</code> array. Then we show a blank screen and wait 500 milliseconds before calling <code>experiment.next()</code> again.
 
 // ## Helper functions
+var trialsPerBlock = 50;
 
 function toggleFullScreen() {
   console.log("requested");
@@ -99,6 +100,7 @@ var experiment = {
   yposition: 0,
   currpos: 0,
   trialinfo: [],
+  trialOrder: [],
 
   // Parameters for this sequence.
   // Experiment-specific parameters - which keys map to odd/even
@@ -109,9 +111,8 @@ var experiment = {
   alltrials: [[8, 12], [3, 14]], 
   superabridgedtotal: [[[8, 10, 6, 15]], [[2, 1, 10, 8]]],
   //, [[15, 4, 3, 14]], [[5, 13, 4, 9]]],
-  abridgedtotal: [[[8, 10, 6, 15], [9, 5, 16, 6]], [[2, 1, 10, 8], [1, 6, 9, 12]]],
-  //[[15, 4, 3, 14], [7, 16, 4, 9]], [[5, 13, 4, 9], [2, 10, 16, 13]]],
-  totaltrials: [[[8, 10, 6, 15], [9, 5, 16, 6], [2, 1, 10, 8], [6, 1, 9, 12], [15, 4, 3, 14], [7, 16, 4, 9], [5, 13, 4, 9], [2, 10, 16, 13], [7, 6, 4, 3], [6, 4, 7, 11], [11, 10, 6, 3], [9, 1, 14, 6], [5, 15, 11, 16], [4, 12, 14, 16], [10, 8, 11, 13], [16, 12, 2, 13], [15, 12, 9, 14], [12, 4, 3, 14], [2, 15, 12, 6], [15, 13, 14, 7], [3, 13, 7, 6], [5, 9, 4, 3], [15, 8, 16, 6], [14, 8, 6, 12], [11, 12, 2, 16], [2, 15, 8, 11], [14, 4, 3, 7], [12, 10, 4, 8], [11, 4, 14, 6], [11, 8, 15, 5], [15, 11, 12, 5], [6, 12, 7, 5], [11, 15, 4, 14], [7, 1, 16, 12], [13, 12, 9, 11], [14, 8, 10, 15], [13, 7, 10, 16], [9, 11, 16, 6], [15, 4, 9, 16], [11, 8, 6, 5], [16, 9, 6, 4], [1, 7, 16, 2], [12, 10, 13, 5], [15, 14, 1, 4], [1, 10, 11, 12], [1, 5, 10, 15], [7, 4, 15, 16], [14, 8, 7, 11], [1, 4, 15, 11], [9, 13, 11, 14]], [[1, 6, 3, 12], [15, 13, 8, 12], [13, 1, 4, 7], [8, 14, 4, 12], [11, 8, 13, 4], [7, 6, 3, 1], [9, 1, 12, 16], [11, 3, 13, 14], [10, 14, 5, 9], [1, 11, 7, 10], [5, 8, 6, 9], [3, 8, 11, 13], [8, 6, 13, 14], [6, 13, 10, 16], [2, 15, 10, 9], [12, 9, 13, 6], [6, 16, 15, 4], [12, 8, 14, 10], [11, 8, 14, 3], [4, 9, 16, 1], [2, 4, 11, 9], [5, 1, 8, 3], [12, 11, 16, 15], [5, 15, 16, 3], [4, 7, 6, 15], [10, 1, 9, 6], [16, 14, 8, 10], [14, 12, 6, 7], [11, 10, 2, 3], [10, 7, 6, 3], [7, 8, 12, 1], [13, 4, 2, 1], [16, 14, 11, 15], [3, 10, 16, 7], [13, 16, 15, 7], [2, 13, 11, 7], [10, 5, 2, 7], [16, 5, 6, 8], [6, 1, 2, 12], [16, 8, 11, 9], [4, 15, 9, 11], [13, 1, 5, 11], [12, 1, 15, 13], [4, 1, 11, 3], [7, 1, 10, 11], [5, 13, 6, 12], [13, 10, 8, 6], [7, 6, 2, 14], [4, 15, 12, 9], [3, 4, 15, 10]]],
+  abridgedtotal: [[[8, 10, 6, 15], [9, 5, 16, 6], [2, 1, 10, 8], [1, 6, 9, 12]] , [[15, 4, 3, 14], [7, 16, 4, 9], [5, 13, 4, 9], [2, 10, 16, 13]]],
+  totaltrials: [[[8, 10, 6, 15], [9, 5, 16, 6], [2, 1, 10, 8], [6, 1, 9, 12], [15, 4, 3, 14], [7, 16, 4, 9], [5, 13, 4, 9], [2, 10, 16, 13], [7, 6, 4, 3], [6, 4, 7, 11], [11, 10, 6, 3], [9, 1, 14, 6], [5, 15, 11, 16], [4, 12, 14, 16], [10, 8, 11, 13], [16, 12, 2, 13], [15, 12, 9, 14], [12, 4, 3, 14], [2, 15, 12, 6], [15, 13, 14, 7], [3, 13, 7, 6], [5, 9, 4, 3], [15, 8, 16, 6], [14, 8, 6, 12], [11, 12, 2, 16], [2, 15, 8, 11], [14, 4, 3, 7], [12, 10, 4, 8], [11, 4, 14, 6], [11, 8, 15, 5], [15, 11, 12, 5], [6, 12, 7, 5], [11, 15, 4, 14], [7, 1, 16, 12], [13, 12, 9, 11], [14, 8, 10, 15], [13, 7, 10, 16], [9, 11, 16, 6], [15, 4, 9, 16], [11, 8, 6, 5], [16, 9, 6, 4], [7, 1, 16, 2], [12, 10, 13, 5], [15, 14, 1, 4], [10, 1, 11, 12], [5, 1, 10, 15], [7, 4, 15, 16], [14, 8, 7, 11], [4, 1, 15, 11], [9, 13, 11, 14]], [[6, 1, 3, 12], [15, 13, 8, 12], [13, 1, 4, 7], [8, 14, 4, 12], [11, 8, 13, 4], [7, 6, 3, 1], [9, 1, 12, 16], [11, 3, 13, 14], [10, 14, 5, 9], [11, 1, 7, 10], [5, 8, 6, 9], [3, 8, 11, 13], [8, 6, 13, 14], [6, 13, 10, 16], [2, 15, 10, 9], [12, 9, 13, 6], [6, 16, 15, 4], [12, 8, 14, 10], [11, 8, 14, 3], [4, 9, 16, 1], [2, 4, 11, 9], [5, 1, 8, 3], [12, 11, 16, 15], [5, 15, 16, 3], [4, 7, 6, 15], [10, 1, 9, 6], [16, 14, 8, 10], [14, 12, 6, 7], [11, 10, 2, 3], [10, 7, 6, 3], [7, 8, 12, 1], [13, 4, 2, 1], [16, 14, 11, 15], [3, 10, 16, 7], [13, 16, 15, 7], [2, 13, 11, 7], [10, 5, 2, 7], [16, 5, 6, 8], [6, 1, 2, 12], [16, 8, 11, 9], [4, 15, 9, 11], [13, 1, 5, 11], [12, 1, 15, 13], [4, 1, 11, 3], [7, 1, 10, 11], [5, 13, 6, 12], [13, 10, 8, 6], [7, 6, 2, 14], [4, 15, 12, 9], [3, 4, 15, 10]]],
   lock: 1,
   // An array to store the data that we're collecting.
   data: [],
@@ -153,17 +154,21 @@ var experiment = {
     //END
     if (experiment.alltrials.length == 0) {
       if (experiment.tutorial_completed == 0){
-        experiment.currenttrial -= 2;
+        experiment.currenttrial --;
         $('body').css({'background-color': 'white'});
         experiment.block --;
         experiment.tutorial_completed = 1;
         experiment.block_completed = 0;
         showSlide("tutorial-completed");
         for(var i = 0; i < experiment.totaltrials.length; i++){
-          experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
+          //experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
           experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
         }
-        experiment.trialOrder = experiment.totaltrials
+        if (experiment.trialOrder.length == 0){
+          console.log("IT IS ZERO");
+          experiment.trialOrder = experiment.totaltrials.slice();
+          console.log(experiment.trialOrder);
+        } 
 
         return;
       }
@@ -200,8 +205,9 @@ var experiment = {
         experiment.bindFlag = true;
         //reset trials
         experiment.alltrials = experiment.totaltrials.shift();
+        //experiment.alltrials = experiment.abridgedtotal.shift();
         experiment.trialsInBlock = experiment.alltrials.length;
-        //experiment.alltrials = experiment.totaltrials.shift();
+        
       }
     }
 
@@ -265,7 +271,6 @@ var experiment = {
         $( "#path-holder img" ).eq(experiment.currpos).css({'border': '4px solid green'});
         experiment.currpos ++;
         experiment.trialinfo.shift();
-        console.log("correct");
         if (experiment.trialinfo.length == 0){
           experiment.lock = 0;
           var endTime = (new Date()).getTime(),
@@ -278,7 +283,7 @@ var experiment = {
           };
             //experiment.stimulustype = 0;
             experiment.data.push(data);
-            experiment.currenttrial = experiment.currenttrial - 20 * experiment.block + 1;
+            experiment.currenttrial = experiment.currenttrial % trialsPerBlock + 1;
             experiment.block_completed = 1;
             $(document).unbind("keydown");
             setTimeout(experiment.next, 900);
@@ -289,7 +294,6 @@ var experiment = {
 
     // Set up a function to react to keyboard input. Functions that are used to react to user input are called *event handlers*. In addition to writing these event handlers, you have to *bind* them to particular events (i.e., tell the browser that you actually want the handler to run when the user performs an action). Note that the handler always takes an <code>event</code> argument, which is an object that provides data about the user input (e.g., where they clicked, which button they pressed).
     keyPressHandler: function(event) {
-      console.log("handling press");
       // A slight disadvantage of this code is that you have to test for numeric key values; instead of writing code that expresses "*do X if 'Q' was pressed*", you have to do the more complicated "*do X if the key with code 80 was pressed*". A library like [Keymaster](http://github.com/madrobby/keymaster) lets you write simpler code like <code>key('a', function(){ alert('you pressed a!') })</code>, but I've omitted it here. Here, we get the numeric key code from the event object
       var keyCode = event.which;
       
@@ -307,7 +311,6 @@ var experiment = {
               $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
                 experiment.xposition ++;
                 experiment.testKey();
-                console.log("bound");
                 $(document).unbind("keydown", experiment.keyPressHandler);
                 $(document).on("keydown", experiment.keyPressHandler);
               });}, 66);
@@ -319,7 +322,6 @@ var experiment = {
           }, 400, function() {
            experiment.xposition ++;
            experiment.testKey();
-           console.log("bound");
            $(document).unbind("keydown", experiment.keyPressHandler);
            $(document).on("keydown", experiment.keyPressHandler);
          });
@@ -327,7 +329,6 @@ var experiment = {
       } 
       else if (keyCode == 40 && experiment.yposition < experiment.gridsize-1) {
         $(document).unbind("keydown");
-        console.log("unbound");
         experiment.keypresses ++;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -356,13 +357,11 @@ var experiment = {
            experiment.testKey();
            $(document).unbind("keydown", experiment.keyPressHandler);
            $(document).on("keydown", experiment.keyPressHandler);
-           console.log("bound");
          });
         }
       }
       else if (keyCode == 37 && experiment.xposition > 0) {
         $(document).unbind("keydown");
-        console.log("unbound");
         experiment.keypresses ++;
         if (experiment.stimulustype == 1){
           $( "#display-table" ).animate({
@@ -375,7 +374,6 @@ var experiment = {
               $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
                 experiment.xposition --;
                 experiment.testKey();
-                console.log("bound");
                 $(document).unbind("keydown", experiment.keyPressHandler);
                 $(document).on("keydown", experiment.keyPressHandler);
               });}, 66);
@@ -389,12 +387,10 @@ var experiment = {
            experiment.testKey();
            $(document).unbind("keydown", experiment.keyPressHandler);
            $(document).on("keydown", experiment.keyPressHandler);
-           console.log("bound");
          });
         }
       }
       else if (keyCode == 38 && experiment.yposition > 0) {
-        console.log("unbound");
         $(document).unbind("keydown");
         experiment.keypresses ++;
         if (experiment.stimulustype == 1){
@@ -409,7 +405,6 @@ var experiment = {
               $( "#display-table" ).animate({ opacity: '1'}, 167, function() {
                 experiment.yposition --;
                 experiment.testKey();
-                console.log("bound");
                 $(document).unbind("keydown", experiment.keyPressHandler);
                 $(document).on("keydown", experiment.keyPressHandler);
               });}, 66);
@@ -421,7 +416,6 @@ var experiment = {
             marginBottom: '-=155px'
           }, 400, function() {
             experiment.yposition --;
-            console.log("bound");
             experiment.testKey();
             $(document).unbind("keydown", experiment.keyPressHandler);
             $(document).on("keydown", experiment.keyPressHandler);
