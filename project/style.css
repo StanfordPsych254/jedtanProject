@@ -3,6 +3,10 @@
 
 /* We want the page to sit flush inside the browser window - that means no margins or padding. Also, use a nice-looking serif font. */
 
+iframe{
+	width: 100vw;
+	height: 100vh;
+}
 #fullscreenButton{
 
 }
