@@ -3,7 +3,12 @@
 
 /* We want the page to sit flush inside the browser window - that means no margins or padding. Also, use a nice-looking serif font. */
 
-.progress{
+#fullscreenButton{
+
+}
+.wrapper{
+	
+	text-align: center;
 	position: fixed;
 	width: 500px;
 	z-index: 10;
