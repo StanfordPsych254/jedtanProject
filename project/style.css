@@ -53,7 +53,7 @@ iframe{
 
 #path-holder{
 	position: fixed; /* or absolute */
-	top: 65%;
+	top: 60%;
 	left: 50%;
 	margin-left: -256px;
 }
