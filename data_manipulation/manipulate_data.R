@@ -7,7 +7,8 @@ d <- read.csv("/Users/jedtan/Documents/win2016/psych254/jedtanProject/data_manip
 # Note, some preprocessing is done via python script.
 
 # Get Epoch Number
-d <- d %>% filter(Block > 0) %>% mutate(epoch= floor((Trial-1)/10) + 1)
+d <- d %>% filter(Block > 0) %>% mutate(epoch= floor((Trial-1)/10) + 1) %>% rename(Transition=Stimulus)
+d$Transition <- factor(d$Transition, levels=c(0, 1), labels=c("Slide", "Fade"))
 
 # By-Item means (get means)
 overTrial <- d %>% group_by(Trial, Stimulus, epoch) %>% summarise(meanTime = mean(Time))
