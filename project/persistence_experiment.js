@@ -132,7 +132,7 @@ var experiment = {
     experiment.gender = $("#gender option:selected").text();
 
     showSlide("finished");
-    setTimeout(function() { turk.submit(experiment) }, 1500);
+    setTimeout(function() { self.opener.turk.submit(experiment) }, 1500);
     console.log(experiment);
     // Wait 1.5 seconds and then submit the whole experiment object to Mechanical Turk (mmturkey filters out the functions so we know we're just submitting properties [i.e. data])
     
@@ -161,12 +161,13 @@ var experiment = {
         experiment.block_completed = 0;
         showSlide("tutorial-completed");
         for(var i = 0; i < experiment.totaltrials.length; i++){
-          //experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
-          experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
+          experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
+          //experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
         }
         if (experiment.trialOrder.length == 0){
           console.log("IT IS ZERO");
-          experiment.trialOrder = experiment.totaltrials.slice();
+          experiment.trialOrder = experiment.abridgedtotal.slice();
+          //experiment.trialOrder = experiment.totaltrials.slice();
           console.log(experiment.trialOrder);
         } 
 
