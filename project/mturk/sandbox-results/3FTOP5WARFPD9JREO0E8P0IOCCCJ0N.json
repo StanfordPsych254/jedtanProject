@@ -1,0 +1,775 @@
+{
+    "AutoApprovalTime": "2016-03-11T22:06:36Z",
+    "AssignmentId": "3FTOP5WARFPD9JREO0E8P0IOCCCJ0N",
+    "WorkerId": "A1U7TUH6M4PL9O",
+    "answers": {
+        "data": {
+            "trialOrder": [
+                [],
+                []
+            ],
+            "currpos": 4,
+            "stimulustype": false,
+            "gridsize": 4,
+            "trials": null,
+            "bindFlag": true,
+            "keypresses": 14,
+            "movement_constant": 100,
+            "lock": 1,
+            "trialinfo": [],
+            "race": "Asian",
+            "tutorial_completed": 1,
+            "gridConfigurations": [],
+            "startTime": 1457733678840,
+            "data": [
+                {
+                    "keypresses": 5,
+                    "stimulus": 0,
+                    "trial": 0,
+                    "block": 0,
+                    "time": 3797
+                },
+                {
+                    "keypresses": 6,
+                    "stimulus": 0,
+                    "trial": 1,
+                    "block": 0,
+                    "time": 3564
+                },
+                {
+                    "keypresses": 27,
+                    "stimulus": true,
+                    "trial": 0,
+                    "block": 0,
+                    "time": 16972
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 1,
+                    "block": 0,
+                    "time": 9211
+                },
+                {
+                    "keypresses": 28,
+                    "stimulus": true,
+                    "trial": 2,
+                    "block": 0,
+                    "time": 18167
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 3,
+                    "block": 0,
+                    "time": 11487
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": true,
+                    "trial": 4,
+                    "block": 0,
+                    "time": 8550
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 5,
+                    "block": 0,
+                    "time": 9424
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 6,
+                    "block": 0,
+                    "time": 12539
+                },
+                {
+                    "keypresses": 38,
+                    "stimulus": true,
+                    "trial": 7,
+                    "block": 0,
+                    "time": 28018
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 8,
+                    "block": 0,
+                    "time": 8211
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": true,
+                    "trial": 9,
+                    "block": 0,
+                    "time": 5958
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": true,
+                    "trial": 10,
+                    "block": 0,
+                    "time": 10969
+                },
+                {
+                    "keypresses": 23,
+                    "stimulus": true,
+                    "trial": 11,
+                    "block": 0,
+                    "time": 36565
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 12,
+                    "block": 0,
+                    "time": 12021
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 13,
+                    "block": 0,
+                    "time": 10541
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 14,
+                    "block": 0,
+                    "time": 13219
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 15,
+                    "block": 0,
+                    "time": 10251
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": true,
+                    "trial": 16,
+                    "block": 0,
+                    "time": 13439
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": true,
+                    "trial": 17,
+                    "block": 0,
+                    "time": 9719
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 18,
+                    "block": 0,
+                    "time": 10056
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": true,
+                    "trial": 19,
+                    "block": 0,
+                    "time": 7740
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": true,
+                    "trial": 20,
+                    "block": 0,
+                    "time": 5644
+                },
+                {
+                    "keypresses": 22,
+                    "stimulus": true,
+                    "trial": 21,
+                    "block": 0,
+                    "time": 17070
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": true,
+                    "trial": 22,
+                    "block": 0,
+                    "time": 7907
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": true,
+                    "trial": 23,
+                    "block": 0,
+                    "time": 6436
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 24,
+                    "block": 0,
+                    "time": 9020
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 25,
+                    "block": 0,
+                    "time": 10640
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 26,
+                    "block": 0,
+                    "time": 10164
+                },
+                {
+                    "keypresses": 26,
+                    "stimulus": true,
+                    "trial": 27,
+                    "block": 0,
+                    "time": 18962
+                },
+                {
+                    "keypresses": 19,
+                    "stimulus": true,
+                    "trial": 28,
+                    "block": 0,
+                    "time": 13675
+                },
+                {
+                    "keypresses": 27,
+                    "stimulus": true,
+                    "trial": 29,
+                    "block": 0,
+                    "time": 23445
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 30,
+                    "block": 0,
+                    "time": 8873
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 31,
+                    "block": 0,
+                    "time": 12250
+                },
+                {
+                    "keypresses": 21,
+                    "stimulus": true,
+                    "trial": 32,
+                    "block": 0,
+                    "time": 13810
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 33,
+                    "block": 0,
+                    "time": 10053
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": true,
+                    "trial": 34,
+                    "block": 0,
+                    "time": 6425
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 35,
+                    "block": 0,
+                    "time": 9962
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 36,
+                    "block": 0,
+                    "time": 7802
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": true,
+                    "trial": 37,
+                    "block": 0,
+                    "time": 11345
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 38,
+                    "block": 0,
+                    "time": 10888
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": true,
+                    "trial": 39,
+                    "block": 0,
+                    "time": 11443
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 40,
+                    "block": 0,
+                    "time": 9159
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": true,
+                    "trial": 41,
+                    "block": 0,
+                    "time": 7829
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": true,
+                    "trial": 42,
+                    "block": 0,
+                    "time": 5748
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": true,
+                    "trial": 43,
+                    "block": 0,
+                    "time": 11862
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": true,
+                    "trial": 44,
+                    "block": 0,
+                    "time": 8857
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 45,
+                    "block": 0,
+                    "time": 18670
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": true,
+                    "trial": 46,
+                    "block": 0,
+                    "time": 10095
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": true,
+                    "trial": 47,
+                    "block": 0,
+                    "time": 9614
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": true,
+                    "trial": 48,
+                    "block": 0,
+                    "time": 22800
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": true,
+                    "trial": 49,
+                    "block": 0,
+                    "time": 9066
+                },
+                {
+                    "keypresses": 21,
+                    "stimulus": false,
+                    "trial": 50,
+                    "block": 1,
+                    "time": 15704
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": false,
+                    "trial": 1,
+                    "block": 1,
+                    "time": 5718
+                },
+                {
+                    "keypresses": 16,
+                    "stimulus": false,
+                    "trial": 2,
+                    "block": 1,
+                    "time": 10812
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 3,
+                    "block": 1,
+                    "time": 6973
+                },
+                {
+                    "keypresses": 27,
+                    "stimulus": false,
+                    "trial": 4,
+                    "block": 1,
+                    "time": 16047
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": false,
+                    "trial": 5,
+                    "block": 1,
+                    "time": 6402
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": false,
+                    "trial": 6,
+                    "block": 1,
+                    "time": 8630
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": false,
+                    "trial": 7,
+                    "block": 1,
+                    "time": 9906
+                },
+                {
+                    "keypresses": 8,
+                    "stimulus": false,
+                    "trial": 8,
+                    "block": 1,
+                    "time": 4793
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 9,
+                    "block": 1,
+                    "time": 6365
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 10,
+                    "block": 1,
+                    "time": 7950
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 11,
+                    "block": 1,
+                    "time": 6272
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": false,
+                    "trial": 12,
+                    "block": 1,
+                    "time": 7949
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": false,
+                    "trial": 13,
+                    "block": 1,
+                    "time": 6134
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 14,
+                    "block": 1,
+                    "time": 6579
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 15,
+                    "block": 1,
+                    "time": 6424
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 16,
+                    "block": 1,
+                    "time": 7796
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 17,
+                    "block": 1,
+                    "time": 7509
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 18,
+                    "block": 1,
+                    "time": 7521
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 19,
+                    "block": 1,
+                    "time": 8400
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 20,
+                    "block": 1,
+                    "time": 8991
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": false,
+                    "trial": 21,
+                    "block": 1,
+                    "time": 7738
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 22,
+                    "block": 1,
+                    "time": 7935
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": false,
+                    "trial": 23,
+                    "block": 1,
+                    "time": 10180
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": false,
+                    "trial": 24,
+                    "block": 1,
+                    "time": 6542
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": false,
+                    "trial": 25,
+                    "block": 1,
+                    "time": 4999
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 26,
+                    "block": 1,
+                    "time": 7812
+                },
+                {
+                    "keypresses": 18,
+                    "stimulus": false,
+                    "trial": 27,
+                    "block": 1,
+                    "time": 14779
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": false,
+                    "trial": 28,
+                    "block": 1,
+                    "time": 12519
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 29,
+                    "block": 1,
+                    "time": 10831
+                },
+                {
+                    "keypresses": 24,
+                    "stimulus": false,
+                    "trial": 30,
+                    "block": 1,
+                    "time": 17846
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 31,
+                    "block": 1,
+                    "time": 5856
+                },
+                {
+                    "keypresses": 10,
+                    "stimulus": false,
+                    "trial": 32,
+                    "block": 1,
+                    "time": 6496
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 33,
+                    "block": 1,
+                    "time": 11131
+                },
+                {
+                    "keypresses": 13,
+                    "stimulus": false,
+                    "trial": 34,
+                    "block": 1,
+                    "time": 9007
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 35,
+                    "block": 1,
+                    "time": 7618
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 36,
+                    "block": 1,
+                    "time": 6787
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": false,
+                    "trial": 37,
+                    "block": 1,
+                    "time": 5591
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 38,
+                    "block": 1,
+                    "time": 6944
+                },
+                {
+                    "keypresses": 20,
+                    "stimulus": false,
+                    "trial": 39,
+                    "block": 1,
+                    "time": 10862
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 40,
+                    "block": 1,
+                    "time": 8169
+                },
+                {
+                    "keypresses": 15,
+                    "stimulus": false,
+                    "trial": 41,
+                    "block": 1,
+                    "time": 7756
+                },
+                {
+                    "keypresses": 9,
+                    "stimulus": false,
+                    "trial": 42,
+                    "block": 1,
+                    "time": 6585
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": false,
+                    "trial": 43,
+                    "block": 1,
+                    "time": 9174
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 44,
+                    "block": 1,
+                    "time": 7549
+                },
+                {
+                    "keypresses": 17,
+                    "stimulus": false,
+                    "trial": 45,
+                    "block": 1,
+                    "time": 10847
+                },
+                {
+                    "keypresses": 22,
+                    "stimulus": false,
+                    "trial": 46,
+                    "block": 1,
+                    "time": 15942
+                },
+                {
+                    "keypresses": 12,
+                    "stimulus": false,
+                    "trial": 47,
+                    "block": 1,
+                    "time": 8296
+                },
+                {
+                    "keypresses": 11,
+                    "stimulus": false,
+                    "trial": 48,
+                    "block": 1,
+                    "time": 6969
+                },
+                {
+                    "keypresses": 14,
+                    "stimulus": false,
+                    "trial": 49,
+                    "block": 1,
+                    "time": 8005
+                }
+            ],
+            "current_grid": [
+                3,
+                14,
+                5,
+                4,
+                7,
+                9,
+                12,
+                11,
+                8,
+                16,
+                13,
+                10,
+                2,
+                6,
+                15,
+                1
+            ],
+            "yposition": 3,
+            "totaltrials": [],
+            "gender": "Male",
+            "age": "25",
+            "trialsInBlock": 50,
+            "xposition": 1,
+            "alltrials": [],
+            "block_completed": 1,
+            "currenttrial": 50,
+            "block": 1
+        }
+    },
+    "AcceptTime": "2016-03-11T21:34:32Z",
+    "HITId": "3FDWKV9VCN3G3TBLZ20I5F2UTR2UME",
+    "Assignment": "",
+    "AssignmentStatus": "Submitted",
+    "SubmitTime": "2016-03-11T22:01:36Z"
+}
