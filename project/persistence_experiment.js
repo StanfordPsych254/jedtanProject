@@ -165,7 +165,7 @@ var experiment = {
         }
         if (experiment.trialOrder.length == 0){
           //experiment.trialOrder = experiment.abridgedtotal.slice();
-          experiment.trialOrder = $.extend(true, [], a);
+          experiment.trialOrder = $.extend(true, [], experiment.totaltrials);
         } 
 
         return;
