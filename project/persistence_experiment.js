@@ -154,7 +154,7 @@ var experiment = {
     //END
     if (experiment.alltrials.length == 0) {
       if (experiment.tutorial_completed == 0){
-        experiment.currenttrial --;
+        experiment.currenttrial -= 2;
         $('body').css({'background-color': 'white'});
         experiment.block --;
         experiment.tutorial_completed = 1;
@@ -205,8 +205,8 @@ var experiment = {
         $('#display-table').html(table_string);
         experiment.bindFlag = true;
         //reset trials
-        experiment.alltrials = experiment.totaltrials.shift();
-        //experiment.alltrials = experiment.abridgedtotal.shift();
+        //experiment.alltrials = experiment.totaltrials.shift();
+        experiment.alltrials = experiment.abridgedtotal.shift();
         experiment.trialsInBlock = experiment.alltrials.length;
         
       }
@@ -266,8 +266,8 @@ var experiment = {
 
     },
     testKey: function(event){
-      console.log("X:" + experiment.xposition + " Y:" + experiment.yposition);
-      console.log(experiment.trialinfo[0]);
+      //console.log("X:" + experiment.xposition + " Y:" + experiment.yposition);
+      //console.log(experiment.trialinfo[0]);
       if (experiment.trialinfo.length > 0 && experiment.xposition == experiment.trialinfo[0][0] && experiment.yposition == experiment.trialinfo[0][1]) {
         $( "#path-holder img" ).eq(experiment.currpos).css({'border': '4px solid green'});
         experiment.currpos ++;
