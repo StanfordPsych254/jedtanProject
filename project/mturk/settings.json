@@ -1,12 +1,12 @@
 {
     "title":               "Object Persistence Experiment",
-    "description":         "Use keyboard to navigate a grid of figures to analyze the efficacy of different transitions",
-    "keywords":            "puppy, kitten, cute",
+    "description":         "Use your keyboard to navigate a grid of figures to analyze the efficacy of different transitions. Keyboard required!",
+    "keywords":            "smartphone, transition, experiment, keyboard",
     "url":                 "https://stanford.edu/~jedtan/jedtanProject/project/test.html",
     "frame_height":         450,
-    "assignment_duration":  "45 minute",
+    "assignment_duration":  "1 hour",
     "auto_approval_delay":  "5 minutes",
-    "reward":               1.00,
+    "reward":               3.00,
     "qualifications": {
         "location": "US",
         "approval_percentage": 85
