@@ -161,14 +161,12 @@ var experiment = {
         experiment.block_completed = 0;
         showSlide("tutorial-completed");
         for(var i = 0; i < experiment.totaltrials.length; i++){
-          experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
+          //experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
           experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
         }
         if (experiment.trialOrder.length == 0){
-          console.log("IT IS ZERO");
-          experiment.trialOrder = experiment.abridgedtotal.slice();
+          //experiment.trialOrder = experiment.abridgedtotal.slice();
           experiment.trialOrder = experiment.totaltrials.slice();
-          console.log(experiment.trialOrder);
         } 
 
         return;
@@ -205,8 +203,8 @@ var experiment = {
         $('#display-table').html(table_string);
         experiment.bindFlag = true;
         //reset trials
-        //experiment.alltrials = experiment.totaltrials.shift();
-        experiment.alltrials = experiment.abridgedtotal.shift();
+        experiment.alltrials = experiment.totaltrials.shift();
+        //experiment.alltrials = experiment.abridgedtotal.shift();
         experiment.trialsInBlock = experiment.alltrials.length;
         
       }
