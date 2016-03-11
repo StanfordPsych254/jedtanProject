@@ -190,6 +190,7 @@ var experiment = {
         experiment.current_grid = experiment.gridConfigurations.shift();
         var table_string = ""
         var row_string = ""
+        console.log("experiment_block" + experiment.block);
         for(var i = 0; i < 16; i++){
           if (i % 4 == 0){
             row_string += "</tr>";
