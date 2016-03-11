@@ -162,12 +162,12 @@ var experiment = {
         showSlide("tutorial-completed");
         for(var i = 0; i < experiment.totaltrials.length; i++){
           experiment.abridgedtotal[i] = shuffle(experiment.abridgedtotal[i])
-          //experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
+          experiment.totaltrials[i] = shuffle(experiment.totaltrials[i])
         }
         if (experiment.trialOrder.length == 0){
           console.log("IT IS ZERO");
           experiment.trialOrder = experiment.abridgedtotal.slice();
-          //experiment.trialOrder = experiment.totaltrials.slice();
+          experiment.trialOrder = experiment.totaltrials.slice();
           console.log(experiment.trialOrder);
         } 
 
