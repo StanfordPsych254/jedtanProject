@@ -1,0 +1,143 @@
+---
+title: "Replication of “Object Persistence Enhances Spatial Navigation”
+ by Liverence & Scholl (2015, Psychological Science)"
+author: "Jed Tan"
+date: "March 10, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(lsr)
+library(lme4)
+```
+
+##Introduction
+In their paper “Object Persistence Enhances Spatial Navigation”, Liverence & Scholl test their theory that persistent object representation could “serve as underlying units of longer-term memory and active spatial navigation”. Liverence & Scholl used a “novel paradigm inspired by the visual interfaces common to many smartphones”. In the experiment, the participants use key presses to navigate through a simple visual environment consisting of a grid of icons. Liverence & Scholl limited the view of the grid to one object at a time via a static window. The researchers found that participants found target icons faster when navigation involved persistence cues (via sliding animations) than when persistence was disrupted (e.g., via temporally matched fading animations). In addition, the researchers found that the difference between the two transition methods “occurred even after explicit memorization of the relevant information”, which led them to the conclusion that “object persistence enhances spatial navigation in an automatic and irresistible fashion.”
+
+More specifically, three different pairs of animation types were tested to attempt to isolate the specific effects of object persistence and motion. The pairs of animations used by the researchers in the experiments were a) slide vs. fade, b) slide vs. wipe and c). fade then slide vs. slide then fade. A fourth experiment, which tested grid memory, was performed to probe the effects of explicit memory as the experiment went on. This was done as the experimenters found that the participants had essentially memorized the grid by the end of each block of experiments. For the purposes of replication, just the first experiment will be replicated.
+
+##Methods
+
+###Power Analysis
+Firstly, Liverence and Scholl noticed that spatial learning occurred over the 50 trials in a block, noticing a 3.31s difference between the average trial RTs first and last epochs (bins of 10 trials) in a block. Secondly, Liverence and Scholl noticed that participants were faster in the first epoch of trials when presented with the slide animation versus the fade animation (1.41s difference, t(17) = 5.22, d = 1.23, p < .001, post-hoc power = .92). They also noticed that RTs differed in each epoch up to the fifth, even when trial speed had plateaued (all p < .001). The fifth epoch averages also differed by an average of 1.46s (t(17) = 4.08, p < .001, d = 0.96). 
+
+###Planned Sample
+The sample size for each of the experiments will be 18 individuals, which is the same size as Liverence and Scholl used. While mean age for Liverence and Scholl’s participants was just over 19 years old, no age restriction will be placed on the experiment for the purposes of extending this experiment to the web. 
+
+###Materials
+Responses to the experiment are done using a keyboard and mouse, the keyboard being the primary tool of interaction on a per trial basis. The stimuli will be presented on the user’s own monitor, in contrast to Liverence and Scholl’s study, which used a standardized CRT monitor subtending 44.6° × 36.3°. Participants sat approximately 50 cm from the display. (All sizes reported are based on this distance.) Responses were made using the keyboard and mouse.” In contrast to the original experiment, which used MATLAB and the PsychToolbox libraries, this particular replication will use custom software written in Javascript and HTML in order to adapt the experiment to the web. Icons are identical to that of Liverence and Scholl, and can be found at: http://cvcl.mit.edu/MM/uniqueObjects.html.
+
+###Procedure
+
+**Experiment Mockup Viewable at:** http://stanford.edu/~jedtan/jedtanProject/project/persistence_experiment.html
+
+Each subject is presented with a grid of icons, of which only one is viewable. The icons were 64 photos of real-world objects, which are obtained from the same image set that Liverence and Scholl used. Sixteen unique icons were used each of two blocks. Each subject will perform two blocks of fifty trials. Each block will have a different transition, counterbalanced between participants. For example, half the subjects first block will have all slide animations, and their second will have all fade animations. The second half of subjects blocks will proceed as all fade animations for the first block, and all slide animations for the second block. The main viewable square icon has a side dimension of 150 pixels and is presented at the center of the display inside a white square window (presented on a black background). Each icon is also surrounded by a 2 pixel black border. Participants press four keys (for “up,” “down,” “left,” and “right”) to navigate through each 4 × 4 virtual environment (Fig. 1a). Upon each key press, the current icon in the static window is replaced with the new corresponding icon (via a 400-ms animation during which no other key presses are possible). The grid was functionally bounded (e.g., so that a “right” key press has no effect if the current icon was from the right-most virtual column). On slide-transition trials, outgoing and incoming icons moved smoothly in the direction opposite the key press through an animation lasting 400 ms. On fade-transition trials, the current icon faded gradually to white over 167 ms; a blank white window was then displayed for 66 ms, and then the new icon gradually faded in from white over 167 ms (for a total of 400 ms). On each trial, four target icons were displayed beneath the window (Fig. 1b), and participants had to locate and click on them in the order in which they were displayed (from left to right). The order and identity of the target icons for each trial were randomly generated once and stored offline, and these trials were then presented in a randomized order for each participant. After a correct click, a green border (4 pixels) appeared around the image of the target icon, each of which was a square icon of side dimension 100 pixels. Out-of-order (i.e., incorrect) clicks were not registered.
+
+## Analysis Plan
+
+The data collected and analyzed during this experiment (at least for the first three experiments)  consist participants response times for the task given (traverse the grid in order of the icons given to them). Following Liverence and Scholl, “The initial two trials of each block [will not be] analyzed, as pilot testing suggested that participants typically made an especially large number of key presses during those initial trials (a pattern consistent with subjective reports of a period of free exploration). In addition, trials with response times (RTs) longer than 30 s (0.56% of the remaining trials) will be excluded.” 
+
+Main statistics that Liverence and Scholl collected included statistic difference in mean response times between slide and fade animations in epochs (groups of ten trials). T-tests will be run on the differences in means for each epoch (for example, the difference in mean response time between fade and slide transition trials in trials number 1-10). In addition to the above t-tests, analysis will be done on the rate of spatial learning (decrease in response time from the first to last epoch). Furthermore, in addition to the above confirmatory statistics, keypress count data collected from the experiment can also be used to explore the rate of spatial learning with regards to number of keypresses (as opposed to decrease in response time).
+
+## Differences from Original Study
+
+There should not be major differences between the original and replicated study. While most of the differences have been mentioned previously, they are restated below. 
+
+* **Experiment**: Just the first experiment will be duplicated (fade versus slide animations). Liverence and Scholl’s original paper do three additional experiments in addition to the one described above, wherein they analyze explicit memory (recall from memory of grid after a block) and low-level movements (testing fade-then-slide versus slide-then-fade).
+* **Materials**: As opposed to the Liverence & Scholl experiment, where the actual hardware is standardized, each participant may have slightly different hardware setups. Measurements of icons are based in pixel versus degree measurements In addition, the testing application will be written in JavaScript and HTML, as opposed to Matlab.
+* **Procedure**: Slight differences in several measurements for the display (i.e. distance between icons, etc) may exist in the replicated implementation of the software. Of course, the experiments will also no longer be done in person, but instead via mechanical turk. Two blocks of fifty trials will be done instead (one being slide transitions, one being fade transitions), due to funding requirements and to maintain Turker engagement.
+* **Analysis**: No changes from original experiment planned. Further exploratory analysis will be done on the number of key presses.
+
+I do not foresee any differences in results between the original experiment and the replicated experiment. None of the changes have a clear connection with any of the conditions that caused the effects observed by the experimenters.
+
+# Methods Addendum
+
+## Results
+### Pilot B
+
+###Data preparation
+
+```{r read_data, echo=FALSE}
+d <- read.csv("/Users/jedtan/Documents/win2016/psych254/jedtanProject/data_manipulation/final_results.csv")
+```
+
+The raw data is first modified by adding the epoch number to the frame. Trials with RT >30s along with the first two trials of each block are excluded, per Liverence and Scholl's original procedure. In addition, the transition type is converted to a two level factor variable (replacing the 0/1 values with their appropriate "Slide/Fade" labels).
+
+```{r mutate_data}
+d <- d %>% filter(Time < 30000, Trial > 3) %>% mutate(epoch= floor((Trial-1)/10) + 1) %>% rename(Transition=Stimulus)
+d$Transition <- factor(d$Transition, levels=c(0, 1), labels=c("Slide", "Fade"))
+d$epoch <- factor(d$epoch)
+```
+
+###Confirmatory analysis
+
+To do confirmatory analysis, we first attempt to produce a per trial and per epoch comparison in means between the Side and Fade transitions. To do this, we employ the use of dplyr's group_by and summarise functions.
+
+```{r per_trial_and_epoch}
+overTrial <- d %>% group_by(Trial, Transition, epoch) %>% summarise(meanTime = mean(Time), meanPress = mean(KeyPresses))
+totalMeans <- overTrial %>% group_by(Transition, epoch) %>% summarise(meanTime = mean(meanTime), meanPress = mean(meanPress))
+
+epoch <- d %>% group_by(WorkerID, epoch, Transition) %>% summarise(meanTime = mean(Time), meanPress = mean(KeyPresses))
+
+```
+
+Below, we can plot the per trial and per epoch means between the two transition types.
+
+```{r per_trial_and_epoch_press_graphs}
+ggplot(data=totalMeans, aes(x=epoch, y=meanTime, group = Transition, colour = Transition)) +
+  geom_line() +
+  geom_point( size=2, shape=21, fill="white") + labs(title = "Per Epoch Means") + xlab("Epoch") + ylab("Mean Time (ms)")
+
+ggplot(data=overTrial, aes(x=Trial, y=meanTime, group = Transition, colour = Transition)) +
+  geom_line() +
+  geom_point( size=2, shape=21, fill="white") + labs(title = "Per Trial Means") + xlab("Trial") + ylab("Mean Time (ms)")
+```
+
+We also generate test statistics comparing the two animations over each epoch, with t-values, their associated p-values, df, and the cohen's D (effect size) between the two means at that point.
+```{r generate_t_statistics, echo=FALSE}
+test_statistics <- data.frame(epoch=c(1,2,3,4,5)) %>% mutate(tStatistic = 0, pValue = 0, effectSize = 0)
+for(i in 1:5)
+{
+  temp_t.test = t.test((epoch %>% filter(epoch == i, Transition == "Fade"))$meanTime, (epoch %>% filter(epoch == i, Transition == "Slide"))$meanTime)
+  test_statistics[i, 2] = temp_t.test$statistic
+  test_statistics[i, 3] = temp_t.test$p.value
+
+  cohensDVal <- cohensD((epoch %>% filter(epoch == i, Transition == "Fade"))$meanTime, (epoch %>% filter(epoch == i, Transition == "Slide"))$meanTime)
+  test_statistics[i, 4] = cohensDVal
+}
+test_statistics
+```
+
+To verify the learning undergone by the subjects, we observe that there is a 6.329s improvement in trial speed over the 50 trial block.
+```{r overall_improvement, echo=FALSE}
+time_differences <- totalMeans %>% group_by(epoch) %>% summarise(meanTime = mean(meanTime))
+time_differences$meanTime[1] - time_differences$meanTime[5]
+```
+
+### Exploratory Analysis
+
+As part of our explatory analysis, we attempt to use a linear mixed model to fit the data. The logic behind using a linear mixed effect model stems from our analysis of individual subjects as a random effect, and trial and condition as having fixed and interacting effects. 
+
+```{r linear_model}
+linModel <- lmer(Time ~ Trial * Transition + (1|WorkerID), data = d)
+summary(linModel)
+```
+
+Below, trends in keypress data per epoch and per trial can also be seen.
+
+```{r per_trial_and_epoch_graphs}
+ggplot(data=totalMeans, aes(x=epoch, y=meanPress, group = Transition, colour = Transition)) +
+  geom_line() +
+  geom_point( size=2, shape=21, fill="white") + labs(title = "Per Epoch Means") + xlab("Epoch") + ylab("Mean Key Presses")
+
+ggplot(data=overTrial, aes(x=Trial, y=meanPress, group = Transition, colour = Transition)) +
+  geom_line() +
+  geom_point( size=2, shape=21, fill="white") + labs(title = "Per Trial Means") + xlab("Trial") + ylab("Mean Key Presses")
+```
+
+
+
+
