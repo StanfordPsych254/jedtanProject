@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/160878/d7e3aef01e124c2bac3349a0153c9591
+bundleId: https://api.rpubs.com/api/v1/document/160878/d7e3aef01e124c2bac3349a0153c9591
+url: http://rpubs.com/jedtan/160878
+when: 1458153827.09018

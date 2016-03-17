@@ -48,14 +48,14 @@
 		find each icon, a green border will appear around the element to signify
 		that you have found the element. Upon traversing the icons, you will be presented with a new
 		path of four icons in the lower middle of your screen,
-		and your top-center view will re-focus on the top left icon. Please traverse each path as quickly as you can. In addition, please do this experiment in full screen, which you can trigger by clicking the button below. After clicking the Full-Screen button, please click Start to continue along in the directions. If you ever leave full screen mode, you can use the full screen
+		and your top-center view will re-focus on the top left icon. Please traverse each path as quickly as you can. In addition, please do this experiment in full screen, which you can trigger by clicking the button below. You will not be able to start the experiment until after you do so. After clicking the Full-Screen button, please click Start to continue along in the directions. If you ever leave full screen mode, you can use the full screen
 		button in the experimental area to make your page full screen again.
 		<!-- Tell the subject which keys to press. We need to set these values dynamically; I use <code>{{}}</code> to indicate template locations in HTML that will be modified by JavaScript. -->
 				
 	</p>
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
-	<input type="button" value="Fullscreen" onclick="toggleFullScreen()">
-	<button type="button" onclick="this.blur(); experiment.furtherDirections(); ">Start</button>
+	<input type="button" value="Fullscreen" onclick="toggleFullScreen(); $('#start-button').prop('disabled', false);">
+	<button type="button" id="start-button" disabled onclick="this.blur(); experiment.furtherDirections(); ">Start</button>
 	<!-- Legal blurb that we're required to show. -->
 	<p class="block-text" id="legal">Legal information: By participating in the following experiment, you are participating in a study being performed by the Stanford Department of Psychology. If you have questions about this research, please contact us at <a href="mailto://jedtan@stanford.edu">stanfordpysch254@gmail.com</a>. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you. Note however that we have recently been made aware that your public Amazon.com profile can be accessed via your worker ID if you do not choose to opt out. If you would like to opt out of this feature, you may follow instructions available <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
 		
