@@ -93,7 +93,7 @@ var experiment = {
   trialsInBlock: 2,
   block: 0,
   currenttrial: 0,
-  stimulustype: 1,
+  stimulustype: 0,
   tutorial_completed: 0,
   gridsize: 4,
   xposition: 0,
